@@ -13,7 +13,6 @@ import { DecrementAction, DecrementByValueAction, IncrementAction, IncrementByVa
 function* increment({ payload }: IncrementAction) {
   yield put(setOperationLoading());
   const res: number = yield call(makeOperation, payload.value, 1)
-  console.log(res);
   yield put(setOperationSuccess(res));
 }
 
