@@ -17,6 +17,9 @@ const counterSlice = createSlice({
         setOperationLoading: (state) => {
             state.isLoading = true;
         },
+        setStopLoading: (state) => {
+            state.isLoading = false;
+        },
         setOperationSuccess: (state, { payload }) => {
             state.value = payload;
             state.isLoading = false;
@@ -36,6 +39,8 @@ const counterSlice = createSlice({
     export const DECREMENT_BY_VALUE_ASYNC = 'counter/DECREMENT_BY_VALUE_ASYNC';
     export const decrementByValueAsync = createAction(DECREMENT_BY_VALUE_ASYNC, (value: number, input: number) => ({payload: {value, input}}));
 
-    export const { setInput, setOperationLoading, setOperationSuccess } = counterSlice.actions;
+    export const CANCEL_ACTION = 'counter/cancelAction';
+    export const cancelAction = createAction(CANCEL_ACTION);
+    export const { setInput, setOperationLoading, setStopLoading, setOperationSuccess } = counterSlice.actions;
 
     export default counterSlice.reducer;
