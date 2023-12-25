@@ -24,7 +24,6 @@ export const Input: FC = () => {
             dispatch(setInput(''))
         } else {
             setIsError(true);
-            console.log(input);
         }
 
     };
@@ -39,7 +38,6 @@ export const Input: FC = () => {
             dispatch(setInput(''))
         } else {
             setIsError(true);
-            console.log(input);
         }
     }
     const setInputValue = (value: string) => dispatch(setInput(value));
