@@ -16,7 +16,7 @@ p {
   width: 400px;
   display: flex;
   margin: 0 auto;
-  height: 100vh;
+  height: 80vh;
   padding: 30px;
   flex-direction: column;
   gap: 15px;
