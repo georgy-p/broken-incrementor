@@ -13,7 +13,7 @@ import { DecrementAction, DecrementByValueAction, IncrementAction, IncrementByVa
 
 function* increment({ payload }: IncrementAction) {
   yield put(setOperationLoading());
-  const { result, cancel } = yield race({
+  const { result } = yield race({
     result: call(makeOperation, payload.value, 1),
     cancel: take(CANCEL_ACTION),
   });
@@ -28,7 +28,7 @@ function* increment({ payload }: IncrementAction) {
 
 function* decrement({ payload }: DecrementAction) {
   yield put(setOperationLoading());
-  const { result, cancel } = yield race({
+  const { result } = yield race({
     result: call(makeOperation, payload.value, -1),
     cancel: take(CANCEL_ACTION),
   });
@@ -43,7 +43,7 @@ function* decrement({ payload }: DecrementAction) {
 
 function* incrementByValue({ payload }: IncrementByValueAction) {
   yield put(setOperationLoading());
-  const { result, cancel } = yield race({
+  const { result } = yield race({
     result: call(makeOperation, payload.value, payload.input),
     cancel: take(CANCEL_ACTION),
   });
@@ -58,7 +58,7 @@ function* incrementByValue({ payload }: IncrementByValueAction) {
 
 function* decrementByValue({ payload }: DecrementByValueAction) {
   yield put(setOperationLoading());
-  const { result, cancel } = yield race({
+  const { result } = yield race({
     result: call(makeOperation, payload.value, -payload.input),
     cancel: take(CANCEL_ACTION),
   });
