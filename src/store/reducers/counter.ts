@@ -4,7 +4,7 @@ import { createAction, createSlice } from '@reduxjs/toolkit';
 const initialState = {
     value: 0,
     isLoading: false,
-    input: 0,
+    input: '',
 }
 
 const counterSlice = createSlice({
