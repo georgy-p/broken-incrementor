@@ -8,12 +8,16 @@ import './input.css';
 export const Input: FC = () => {
     const { input, value, isLoading } = useSelector((state: RootState) => state.counter);
     const IntegerInput = Number(input);
-    const [isError, setIsError] = useState(false);
+    const [isError, setIsError] = useState<boolean>(false);
     const dispatch = useDispatch();
 
     const errorMessage = 'Введенный символ не является числом. Введите числовое значение!';
-    const incrementByValue = () => {
 
+    const incrementByValue = () => {
+        if (input === '')   {
+            setIsError(true);
+            return;
+        }
         if (Number.isInteger(IntegerInput)) {
             setIsError(false);
             dispatch(incrementByValueAsync(value, IntegerInput));
@@ -25,6 +29,10 @@ export const Input: FC = () => {
 
     };
     const decrementByValue = () => {
+        if (input === '')   {
+            setIsError(true);
+            return;
+        }
         if (Number.isInteger(IntegerInput)) {
             setIsError(false);
             dispatch(decrementByValueAsync(value, IntegerInput));
@@ -42,6 +50,7 @@ export const Input: FC = () => {
                 className={isError ? 'input error' : 'input'}
                 placeholder="изменить на значение"
                 value={input}
+                disabled={isLoading}
                 onChange={({ target }) => {
                     setInputValue(target.value);
                 }}
