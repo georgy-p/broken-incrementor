@@ -18,3 +18,8 @@
     opacity: 0.7;
     pointer-events: none;
 }
+
+.cancel {
+    margin-top: 20px;
+    background-color: red;
+}
