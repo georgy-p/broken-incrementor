@@ -1,4 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
 .App {
+  background-color: whitesmoke;
+  border-color: white;
   font-family: sans-serif;
   text-align: center;
+  width: 400px;
+  display: flex;
+  margin: 0 auto;
+  height: 100vh;
+  padding: 30px;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
 }
